@@ -38,7 +38,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
     //   return res.status(400).send(`${image_url} is Not a valid image url`)
 
     try {
-      const processed_img_path = await filterImageFromURL(image_url) // task 2
+      const processed_img_path: string = await filterImageFromURL(image_url) // task 2
       res.status(200).sendFile(processed_img_path) // task 3
       res.on('finish', () => deleteLocalFiles([processed_img_path])) // task 4
     } catch(e) {
