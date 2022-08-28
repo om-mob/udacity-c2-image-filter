@@ -29,8 +29,8 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
 
-  app.get("/filteredimage", async (req, res) => {
-    const { image_url } = req.query
+  app.get("/filteredimage", async (req: express.Request, res: express.Response) => {
+    const { image_url } : { image_url: string }  = req.query
     if (!image_url) return res.status(400).send("Please provide image_url query param") // task 1
     
     // // check if the provided url is a valid image url
